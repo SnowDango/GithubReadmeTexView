@@ -22,7 +22,7 @@ class Checker:
 
     def fileCheck(self, path):
         if not path.exists():
-            print("not file")
+            print(path + " is not file")
             exit()
         # Texファイルかどうか
         if path.suffix != ".tex":
