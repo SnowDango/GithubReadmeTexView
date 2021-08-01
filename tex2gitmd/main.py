@@ -16,7 +16,11 @@ def main(argv=sys.argv[1:]):
     if sys.argv[1] == "-h" or sys.argv[1] == "--help" or sys.argv[1] == "help":
         print("Usage: \n\t tex2gitmd texfile [options]")
     else:
-        if not sys.argv[2] is None and sys.argv[2] != "-p" and sys.argv[2] != "--part":
+        if len(sys.argv) == 3:
+            if sys.argv[2] != "-p" and sys.argv[2] != "--part":
+                print("option error")
+                exit()
+        elif len(sys.argv) > 3:
             print("option error")
             exit()
 
@@ -30,8 +34,7 @@ def main(argv=sys.argv[1:]):
         tex2png = Tex2Png()
         partFileName = tex2png.createPartPng(sys.argv[1])
 
-        print(sys.argv[2])
-        if sys.argv[2] is None:
+        if len(sys.argv) == 2:
             # imageの連結
             imgAppender = ImgAppend()
             imgAppender.pngAppend(partFileName)
