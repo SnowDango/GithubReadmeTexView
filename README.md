@@ -12,7 +12,9 @@ pip install git+https://github.com/SnowDango/GithubReadmeTexView
 pip install Pillow
 ```
 Pillowは依存Packageです。
-詳しくは[こっち](https://pillow.readthedocs.io/en/stable/)を見てください
+詳しくは[こっち](https://pillow.readthedocs.io/en/stable/)を見てください。
+
+また、内部で[Tex2img](https://tex2img.tech/)を使用しているので、こちらもInstallをしてCLIツールを使えるようにしてください。
 
 
 ## Use
