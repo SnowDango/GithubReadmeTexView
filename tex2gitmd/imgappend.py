@@ -7,7 +7,7 @@ import glob
 class ImgAppend:
 
     def pngAppend(self, partFile):
-        im_list = [Image.open(partFile + ".png")]
+        im_list = []
         for partFileName in sorted(glob.glob('*.png'), key=os.path.getmtime):
             if len(im_list) == 1:
                 continue
