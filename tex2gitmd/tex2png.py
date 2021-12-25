@@ -12,7 +12,7 @@ class Tex2Png:
         print("created pdf")
         for index, image in enumerate(images):
             name = partFile + "-" + str(index) + '.png'
-            image.save(name, '.png')
+            image.save(name, 'png')
         return partFile
 
     def createPdf(self, texFile):
