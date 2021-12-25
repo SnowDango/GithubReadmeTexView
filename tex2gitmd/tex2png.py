@@ -1,23 +1,26 @@
-import os
-import platform
 import subprocess
 from pdf2image import convert_from_path, convert_from_bytes
 
 
 class Tex2Png:
 
-    def createPartPng(self, texFile):
-        global result
+    def createPartPng(self, texFile: str):
+        self.createPartPng(texFile)
+        pdfFile = texFile.replace(".tex", ".pdf")
+        images = convert_from_path(pdfFile)
         partFile = 'git_md_report-part'
-        if platform.system() == 'Darwin':
-            result = subprocess.run(
-                ['tex2img', '--keep-page-size', '--with-text', '--no-transparent', '--kanji=utf8', texFile,
-                 partFile + '.png'])
-        elif platform.system() == 'Windows':
-            result = subprocess.run(
-                ['tex2imgc', '--keep-page-size', '-with-text', '--no-transparent', '--kanji=utf8', texFile,
-                 partFile + '.png'])
-        if result.returncode == 1:
-            print("Sorry. tex2img error.")
-            exit()
+
+        for index, image in enumerate(images):
+            name = partFile + "-" + str(index) + '.png'
+            image.save(name, 'png')
+
         return partFile
+
+    def createPdf(self, texFile):
+        for num in range(3):
+            result = subprocess.run([
+                "ptex2pdf", "-l", "-ot", "-kanji=utf8 -synctex=1", "-interaction=nonstopmode", texFile
+            ])
+            if result.returncode == 1:
+                print("Sorry. tex2img error.")
+                exit()
