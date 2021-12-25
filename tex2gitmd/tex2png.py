@@ -10,6 +10,8 @@ class Tex2Png:
         images = convert_from_path(pdfFile)
         partFile = 'git_md_report-part'
 
+        print("created pdf")
+
         for index, image in enumerate(images):
             name = partFile + "-" + str(index) + '.png'
             image.save(name, 'png')
