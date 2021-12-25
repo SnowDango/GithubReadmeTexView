@@ -1,5 +1,4 @@
 import os
-import pathlib
 
 from PIL import Image
 import glob
