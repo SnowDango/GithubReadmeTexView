@@ -18,9 +18,6 @@ class Tex2Png:
 
     def createPdf(self, texFile):
         for num in range(3):
-            result = subprocess.run([
+            subprocess.run([
                 "ptex2pdf", "-l", "-ot", "-kanji=utf8 -synctex=1", "-interaction=nonstopmode", texFile
             ])
-            if result.returncode == 1:
-                print("Sorry. tex2img error.")
-                exit()
