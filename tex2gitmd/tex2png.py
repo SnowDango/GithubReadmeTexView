@@ -4,7 +4,7 @@ from pdf2image import convert_from_path, convert_from_bytes
 
 class Tex2Png:
 
-    def createPartPng(self, texFile: str):
+    def createPartPng(self, texFile):
         self.createPartPng(texFile)
         pdfFile = texFile.replace(".tex", ".pdf")
         images = convert_from_path(pdfFile)
