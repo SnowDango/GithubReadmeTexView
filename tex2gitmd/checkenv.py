@@ -5,7 +5,7 @@ import shutil
 class Checker:
     def envCheck(self):
         pf = platform.system()
-        # tex2imgのコマンドが使えるか
+        # ptex2pdfのコマンドが使えるか
         if shutil.which("ptex2pdf") is None:
             print("not found cli tool ptex2pdf")
             print("should install \"https://github.com/texjporg/ptex2pdf\"")
