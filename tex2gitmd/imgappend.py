@@ -1,3 +1,6 @@
+import os
+import pathlib
+
 from PIL import Image
 import glob
 
@@ -5,7 +8,9 @@ class ImgAppend:
 
     def pngAppend(self, partFile):
         im_list = [Image.open(partFile + ".png")]
-        for partFileName in glob.glob(partFile + "-*.png"):
+        for partFileName in sorted(glob.glob('*.png'), key=os.path.getmtime):
+            if len(im_list) == 1:
+                continue
             im_list.insert(len(im_list), Image.open(partFileName))
 
         afterIm = Image.new("RGB", (im_list[0].width, im_list[0].height * len(im_list)))

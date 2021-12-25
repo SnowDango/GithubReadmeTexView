@@ -1,5 +1,7 @@
+import os
 import platform
 import subprocess
+from pdf2image import convert_from_path, convert_from_bytes
 
 
 class Tex2Png:
