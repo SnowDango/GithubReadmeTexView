@@ -18,5 +18,13 @@ class Tex2Png:
     def createPdf(self, texFile):
         for num in range(3):
             result = subprocess.run([
-                "ptex2pdf", "-l", "-ot", "-kanji=utf8 -synctex=1", "-interaction=nonstopmode", texFile
+                "ptex2pdf",
+                "-l",
+                "-ot",
+                "-kanji=utf8",
+                "-synctex=1",
+                "-file-line-error",
+                "-shell-escape",
+                "-interaction=nonstopmode",
+                texFile
             ])
