@@ -6,18 +6,9 @@ class Checker:
     def envCheck(self):
         pf = platform.system()
         # tex2imgのコマンドが使えるか
-        if pf == 'Darwin':
-            if shutil.which("tex2img") is None:
-                print("not found cli tool tex2img")
-                print("should install \"https://tex2img.tech/\"")
-                exit()
-        elif pf == 'Windows':
-            if shutil.which("tex2imgc") is None:
-                print("not found cli tool tex2imgc")
-                print("should install \"https://tex2img.tech/\"")
-                exit()
-        elif pf == 'Linux':
-            print("Sorry. Not supported")
+        if shutil.which("ptex2pdf") is None:
+            print("not found cli tool ptex2pdf")
+            print("should install \"https://github.com/texjporg/ptex2pdf\"")
             exit()
 
     def fileCheck(self, path):
