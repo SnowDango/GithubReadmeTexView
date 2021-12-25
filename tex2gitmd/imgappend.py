@@ -6,7 +6,10 @@ import glob
 class ImgAppend:
 
     def pngAppend(self, partFile):
-        im_list = map(Image.open, sorted(glob.glob(partFile + '-*.png'), key=os.path.getmtime))
+        im_list = []
+
+        for filename in sorted(glob.glob(partFile + '-*.png'), key=os.path.getmtime):
+            im_list.append(Image.open(filename))
 
         afterIm = Image.new("RGB", (im_list[0].width, im_list[0].height * len(im_list)))
         for i in range(len(im_list)):
