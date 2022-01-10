@@ -14,7 +14,9 @@ pip install Pillow
 Pillowは依存Packageです。
 詳しくは[こっち](https://pillow.readthedocs.io/en/stable/)を見てください。
 
-また、内部で[Tex2img](https://tex2img.tech/)を使用しているので、こちらもInstallをしてCLIツールを使えるようにしてください。
+~~また、内部でTex2imgを使用しているので、こちらもInstallをしてCLIツールを使えるようにしてください.~~
+
+Tex2Imgの使用をやめました.代わりにptex2pdfを使用しているのでそちらを使えるようにしてください。
 
 
 ## Use
